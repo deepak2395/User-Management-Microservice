@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: barclay_app_user_management
+  labels:
+    app: barclay_app_user_management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: barclay_app_user_management
+  template:
+    metadata:
+      labels:
+        app: barclay_app_user_management
+    spec:
+      containers:
+      - name: barclay_app_user_management
+        image: us.gcr.io/barclay-302706/barclay_app_user_management:v1
+        ports:
+        - containerPort: 1437
